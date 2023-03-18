@@ -36,6 +36,7 @@ const BaseInput: React.FC<Props> = ({
         id={id}
         name={name}
         type={type}
+        data-testid="form-input"
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -45,7 +46,12 @@ const BaseInput: React.FC<Props> = ({
         }}
       />
       {!!value && (
-        <div onClick={() => { clearField(id) }} className={styles.icon}>
+        <div
+          onClick={() => {
+            clearField(id)
+          }}
+          className={styles.icon}
+        >
           <CloseIcon />
         </div>
       )}
