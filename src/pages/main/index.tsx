@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react'
 import FormBuilder from '../../components/builder'
 import Button from '../../components/ui-components/button'
 import { FormField, FormResult } from '../../types/builder'
+import emojiSrc from '../../assets/icons/emoji.png'
 
 import styles from './index.module.css'
 
@@ -30,6 +31,13 @@ const Main: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.formWrapper}>
+        <img
+          className={styles.img}
+          src={emojiSrc}
+          width={80}
+          height={80}
+          alt="emoji"
+        />
         <h2 className={styles.title}>Авторизация</h2>
         <p className={styles.text}>
           Для доступа к личному кабинету вашей компании авторизуйстесь на сайте
