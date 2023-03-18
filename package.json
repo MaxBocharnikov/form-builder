@@ -12,7 +12,7 @@
     "prepare": "husky install"
   },
   "keywords": [],
-  "author": "Maksim Bocharnikov <mbocharnikov@alfabank.ru>",
+  "author": "Maksim Bocharnikov <bocharnikov3009@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.20.12",

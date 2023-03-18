@@ -21,7 +21,7 @@ const fieldsSchema: FormField[] = [
     required: true
   }
 ]
-const Main: React.FC = () => {
+const MainPage: React.FC = () => {
   const [formResult, setFormResult] = useState<FormResult | null>(null)
 
   const onSubmit = useCallback(() => {
@@ -61,4 +61,4 @@ const Main: React.FC = () => {
   )
 }
 
-export default Main
+export default MainPage

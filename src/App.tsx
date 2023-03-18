@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Main from './pages/main'
+import MainPage from './pages/main-page'
 
 const App: React.FC = () => {
-  return <Main />
+  return <MainPage />
 }
 
 export default App
