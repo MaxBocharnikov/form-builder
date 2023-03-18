@@ -12,7 +12,7 @@
     "prepare": "husky install"
   },
   "keywords": [],
-  "author": "",
+  "author": "Maksim Bocharnikov <mbocharnikov@alfabank.ru>",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.20.12",
@@ -20,6 +20,7 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "babel-loader": "^9.1.2",
+    "classnames": "^2.3.2",
     "clean-webpack-plugin": "^4.0.0",
     "compose-function": "^3.0.3",
     "css-loader": "^6.7.3",
@@ -63,5 +64,6 @@
       "npx prettier --write",
       "npx eslint --fix"
     ]
-  }
+  },
+  "repository": "https://github.com/MaxBocharnikov/form-builder.git"
 }

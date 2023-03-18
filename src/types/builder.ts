@@ -1,23 +1,19 @@
-type FormFieldType = 'inputText' | 'inputEmail' | 'inputPassword';
+type FormFieldType = 'inputText' | 'inputEmail' | 'inputPassword'
 
-export type FormField = {
-    id: string;
-    type: FormFieldType;
-    label: string;
-    defaultValue?: string;
-    required?: boolean;
+export interface FormField {
+  id: string
+  type: FormFieldType
+  label: string
+  defaultValue?: string
+  required?: boolean
 }
 
-export type FormValues = {
-    [key: string]: string;
-}
+export type FormValues = Record<string, string>
 
-export type FormError = {
-    [key: string]: string;
-}
+export type FormError = Record<string, string>
 
-export type FormResult = {
-    formValues: FormValues;
-    isValid: boolean;
-    errors: FormError;
+export interface FormResult {
+  formValues: FormValues
+  isValid: boolean
+  errors: FormError
 }
