@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { FormField } from '../../../types/builder'
+import { FormField, FormValues } from '../../../types/builder'
 import TextInput from '../../ui-components/text-input'
 import EmailInput from '../../ui-components/email-input'
 import PasswordInput from '../../ui-components/password-input'
@@ -8,6 +8,7 @@ type Props = FormField & {
   value: string
   onChange: (event: ChangeEvent<HTMLInputElement>) => void
   error: string | undefined
+  clearField: (fieldName: keyof FormValues) => void
 }
 
 const FormFieldElement: React.FC<Props> = ({
@@ -16,7 +17,8 @@ const FormFieldElement: React.FC<Props> = ({
   label,
   value,
   onChange,
-  error
+  error,
+  clearField
 }) => {
   const renderElement = () => {
     switch (type) {
@@ -28,6 +30,7 @@ const FormFieldElement: React.FC<Props> = ({
             value={value}
             onChange={onChange}
             error={error}
+            clearField={clearField}
           />
         )
 
@@ -39,6 +42,7 @@ const FormFieldElement: React.FC<Props> = ({
             value={value}
             onChange={onChange}
             error={error}
+            clearField={clearField}
           />
         )
 
@@ -50,6 +54,7 @@ const FormFieldElement: React.FC<Props> = ({
             value={value}
             onChange={onChange}
             error={error}
+            clearField={clearField}
           />
         )
 

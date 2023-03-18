@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import FormBuilder from '../../components/builder'
 import Button from '../../components/ui-components/button'
@@ -7,17 +7,6 @@ import { FormField, FormResult } from '../../types/builder'
 import styles from './index.module.css'
 
 const fieldsSchema: FormField[] = [
-  {
-    id: 'first_name',
-    type: 'inputText',
-    label: 'First Name',
-    defaultValue: 'Some first name'
-  },
-  {
-    id: 'last_name',
-    type: 'inputText',
-    label: 'Last Name'
-  },
   {
     id: 'email',
     type: 'inputEmail',
@@ -34,9 +23,9 @@ const fieldsSchema: FormField[] = [
 const Main: React.FC = () => {
   const [formResult, setFormResult] = useState<FormResult | null>(null)
 
-  const onSubmit = () => {
+  const onSubmit = useCallback(() => {
     console.log('result: ', formResult)
-  }
+  }, [JSON.stringify(formResult)])
 
   return (
     <div className={styles.container}>
@@ -47,7 +36,9 @@ const Main: React.FC = () => {
         </p>
         <FormBuilder
           fields={fieldsSchema}
-          onChangeHandler={(result: FormResult) => { setFormResult(result) }}
+          onChangeHandler={(result: FormResult) => {
+            setFormResult(result)
+          }}
         />
         <Button
           text="Войти"

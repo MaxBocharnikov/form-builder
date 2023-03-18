@@ -1,24 +1,30 @@
 import React, { ChangeEvent, memo, useState } from 'react'
 import cn from 'classnames'
 
+import CloseIcon from '../icons/close-icon'
+
 import styles from './index.module.css'
 
 interface Props {
   id: string
+  name: string
   type: string
   placeholder: string
   value: string
   onChange: (event: ChangeEvent<HTMLInputElement>) => void
   error: string | undefined
+  clearField: (fieldName: string) => void
 }
 
 const BaseInput: React.FC<Props> = ({
   id,
+  name,
   type,
   placeholder,
   value,
   onChange,
-  error
+  error,
+  clearField
 }) => {
   const [wasFocused, setWasFocused] = useState<boolean>(false)
 
@@ -28,7 +34,7 @@ const BaseInput: React.FC<Props> = ({
     <div className={styles.wrapper}>
       <input
         id={id}
-        name={id}
+        name={name}
         type={type}
         placeholder={placeholder}
         value={value}
@@ -38,6 +44,11 @@ const BaseInput: React.FC<Props> = ({
           setWasFocused(true)
         }}
       />
+      {!!value && (
+        <div onClick={() => { clearField(id) }} className={styles.icon}>
+          <CloseIcon />
+        </div>
+      )}
       {isErrorShown && <span className={styles.error}> {error} </span>}
     </div>
   )

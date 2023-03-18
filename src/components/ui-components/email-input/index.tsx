@@ -8,6 +8,7 @@ interface Props {
   value: string
   onChange: (event: ChangeEvent<HTMLInputElement>) => void
   error: string | undefined
+  clearField: (fieldName: string) => void
 }
 
 const EmailInput: React.FC<Props> = ({
@@ -15,16 +16,19 @@ const EmailInput: React.FC<Props> = ({
   placeholder,
   value,
   onChange,
-  error
+  error,
+  clearField
 }) => {
   return (
     <BaseInput
       id={id}
+      name={id}
       type="email"
       placeholder={placeholder}
       value={value}
       onChange={onChange}
       error={error}
+      clearField={clearField}
     />
   )
 }

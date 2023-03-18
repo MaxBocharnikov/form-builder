@@ -20,6 +20,13 @@ const Builder: React.FC<Props> = ({ fields, onChangeHandler }) => {
   )
   const [errors, setErrors] = useState<FormError>({})
 
+  const clearField = (fieldName: keyof FormValues) => {
+    setFormValues((prevState) => ({
+      ...prevState,
+      [fieldName]: ''
+    }))
+  }
+
   useEffect(() => {
     const { isValid, errors } = validateForm(formValues, fields)
     setErrors(errors)
@@ -44,6 +51,7 @@ const Builder: React.FC<Props> = ({ fields, onChangeHandler }) => {
             }))
           }}
           error={errors[field.id]}
+          clearField={clearField}
         />
       ))}
     </div>
