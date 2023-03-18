@@ -11,6 +11,10 @@
     border-radius: 5px;
 }
 
+.inputError {
+    border-color: #ff0000;
+}
+
 .error {
     display: inline-block;
     margin-top: 5px;

@@ -33,7 +33,7 @@ const BaseInput: React.FC<Props> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={cn(styles.input, { [styles.error]: !!isErrorShown })}
+        className={cn(styles.input, { [styles.inputError]: !!isErrorShown })}
         onBlur={() => {
           setWasFocused(true)
         }}
