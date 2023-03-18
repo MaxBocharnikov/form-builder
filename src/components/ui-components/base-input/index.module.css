@@ -7,16 +7,16 @@
     height: 15px;
 
     padding: 20px;
-    border: 1px solid #808080;
-    border-radius: 5px;
+    border: 1px solid #8a8a8e;
+    border-radius: 7px;
 }
 
 .inputError {
-    border-color: #ff0000;
+    border-color: #ffa07a;
 }
 
 .error {
     display: inline-block;
     margin-top: 5px;
-    color: #ff0000;
+    color: #ffa07a;
 }
