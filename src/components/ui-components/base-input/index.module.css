@@ -1,0 +1,52 @@
+.wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 100%;
+    height: 15px;
+
+    padding: 20px;
+    border: 1px solid #8a8a8e;
+    border-radius: 7px;
+    border-color: #ffa07a;
+    outline: none;
+}
+
+.inputError {
+
+}
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #8a8a8e;
+    opacity: 1; /* Firefox */
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #8a8a8e;
+}
+
+input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #8a8a8e;
+}
+
+
+.error {
+    display: inline-block;
+    margin-top: 5px;
+    color: #ff0000;
+}
+
+.icon svg {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+
+    width: 10px;
+    height: 10px;
+
+    fill: #8a8a8e;
+    cursor: pointer;
+
+}
