@@ -38,7 +38,7 @@ const Builder: React.FC<Props> = ({ fields, onChangeHandler }) => {
   }, [JSON.stringify(formValues), JSON.stringify(fields)])
 
   return (
-    <div>
+    <div data-testid="form-builder-wrapper">
       {fields.map((field: FormField) => (
         <FormFieldElement
           key={field.id}

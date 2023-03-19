@@ -38,8 +38,10 @@ const MainPage: React.FC = () => {
           height={80}
           alt="emoji"
         />
-        <h2 className={styles.title}>Авторизация</h2>
-        <p className={styles.text}>
+        <h2 className={styles.title} data-testid="title">
+          Авторизация
+        </h2>
+        <p className={styles.text} data-testid="text">
           Для доступа к личному кабинету вашей компании авторизуйстесь на сайте
         </p>
         <FormBuilder
