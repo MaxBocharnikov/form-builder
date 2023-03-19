@@ -55,7 +55,12 @@ const BaseInput: React.FC<Props> = ({
           <CloseIcon />
         </div>
       )}
-      {isErrorShown && <span className={styles.error}> {error} </span>}
+      {isErrorShown && (
+        <span data-testid="error-input" className={styles.error}>
+          {' '}
+          {error}{' '}
+        </span>
+      )}
     </div>
   )
 }

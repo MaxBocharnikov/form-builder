@@ -3,8 +3,8 @@ import { FormField } from '../../types/builder'
 export const fieldsSchema: FormField[] = [
   {
     id: 'last_name',
-    type: 'inputEmail',
-    label: 'Email',
+    type: 'inputText',
+    label: 'Last Name',
     defaultValue: 'Some last name'
   },
   {
