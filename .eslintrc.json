@@ -21,6 +21,7 @@
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
-    "@typescript-eslint/prefer-nullish-coalescing\n": "off"
+    "@typescript-eslint/prefer-nullish-coalescing\n": "off",
+    "@typescript-eslint/no-dynamic-delete": "off"
   }
 }
