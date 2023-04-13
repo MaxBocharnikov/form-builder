@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { FormField, FormValues } from '../../../types/builder'
+import { FormField, FormFieldType, FormValues } from '../../../types/builder'
 import TextInput from '../../ui-components/text-input'
 import EmailInput from '../../ui-components/email-input'
 import PasswordInput from '../../ui-components/password-input'
@@ -22,7 +22,7 @@ const FormFieldElement: React.FC<Props> = ({
 }) => {
   const renderElement = () => {
     switch (type) {
-      case 'inputText':
+      case FormFieldType.InputText:
         return (
           <TextInput
             id={id}
@@ -34,7 +34,7 @@ const FormFieldElement: React.FC<Props> = ({
           />
         )
 
-      case 'inputEmail':
+      case FormFieldType.InputEmail:
         return (
           <EmailInput
             id={id}
@@ -46,7 +46,7 @@ const FormFieldElement: React.FC<Props> = ({
           />
         )
 
-      case 'inputPassword':
+      case FormFieldType.InputPassword:
         return (
           <PasswordInput
             id={id}

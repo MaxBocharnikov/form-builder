@@ -1,4 +1,10 @@
-import { FormError, FormField, FormResult, FormValues } from '../types/builder'
+import {
+  FormError,
+  FormField,
+  FormFieldType,
+  FormResult,
+  FormValues
+} from '../types/builder'
 
 export const generateInitialFormValues = (fields: FormField[]): FormValues => {
   return fields.reduce((acm: FormValues, field: FormField) => {
@@ -13,61 +19,35 @@ export const validateForm = (
   formValues: FormValues,
   fields: FormField[]
 ): Omit<FormResult, 'formValues'> => {
-  const requiredFieldsErrors = validateRequiredFields(formValues, fields)
-  const emailFieldsErrors = validateEmailFields(formValues, fields)
-
-  const errors = mergedObjects(requiredFieldsErrors, emailFieldsErrors)
-
+  const errors = fields.reduce<FormError>((result, field) => {
+    const key = field.id
+    const value = formValues[key]
+    if (field.required) {
+      const isValid = !!value
+      result[key] = formFieldErrors(result[key], 'Cannot be empty', isValid)
+    }
+    if (field.type === FormFieldType.InputEmail) {
+      const isValid = validateEmail(value)
+      result[key] = formFieldErrors(result[key], 'Invalid Email', isValid)
+    }
+    if (!result[key]) {
+      delete result[key]
+    }
+    return result
+  }, {})
   return {
     isValid: Object.keys(errors).length === 0,
     errors
   }
 }
 
-export const validateRequiredFields = (
-  formValues: FormValues,
-  fields: FormField[]
-): FormError => {
-  const requiredFields = fields.filter((field: FormField) => field.required)
-  const missingFields = requiredFields.filter(
-    (field: FormField) => !formValues[field.id]
-  )
-
-  return missingFields.reduce((acm: FormError, field: FormField) => {
-    return {
-      ...acm,
-      [field.id]: 'Cannot be empty'
-    }
-  }, {})
-}
-
-export const validateEmailFields = (
-  formValues: FormValues,
-  fields: FormField[]
-): FormError => {
-  const requiredFields = fields.filter(
-    (field: FormField) => field.type === 'inputEmail'
-  )
-  const missingFields = requiredFields.filter(
-    (field: FormField) => !validateEmail(formValues[field.id])
-  )
-
-  return missingFields.reduce((acm: FormError, field: FormField) => {
-    return {
-      ...acm,
-      [field.id]: 'Invalid Email'
-    }
-  }, {})
-}
-
-export const mergedObjects = (...objects: FormError[]): {} => {
-  const result: FormError = {}
-  for (const obj of objects) {
-    for (const [key, value] of Object.entries(obj)) {
-      result[key] = result[key] ? `${result[key]}, ${value}` : value
-    }
-  }
-  return result
+export const formFieldErrors = (
+  fieldErrors: string,
+  newErrorText: string,
+  isValid: boolean
+): string => {
+  if (isValid) return fieldErrors
+  return fieldErrors ? `${fieldErrors}, ${newErrorText}` : newErrorText
 }
 
 export const validateEmail = (email: string): boolean => {

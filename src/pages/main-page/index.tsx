@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 
 import FormBuilder from '../../components/builder'
 import Button from '../../components/ui-components/button'
-import { FormField, FormResult } from '../../types/builder'
+import { FormField, FormFieldType, FormResult } from '../../types/builder'
 import emojiSrc from '../../assets/icons/emoji.png'
 
 import styles from './index.module.css'
@@ -10,13 +10,13 @@ import styles from './index.module.css'
 const fieldsSchema: FormField[] = [
   {
     id: 'email',
-    type: 'inputEmail',
+    type: FormFieldType.InputEmail,
     label: 'Email',
     required: true
   },
   {
     id: 'password',
-    type: 'inputPassword',
+    type: FormFieldType.InputPassword,
     label: 'Password',
     required: true
   }

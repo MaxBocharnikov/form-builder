@@ -1,4 +1,8 @@
-type FormFieldType = 'inputText' | 'inputEmail' | 'inputPassword'
+export enum FormFieldType {
+  InputText = 'inputText',
+  InputEmail = 'inputEmail',
+  InputPassword = 'inputPassword',
+}
 
 export interface FormField {
   id: string
